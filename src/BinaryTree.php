@@ -66,7 +66,7 @@ class BinaryTree
         $this->fieldToCompare = $field;
         $this->dataFromJson = array_filter($this->dataFromJson, fn($elem) => isset($elem->{$field}));
         if (empty($this->dataFromJson)) {
-            throw new Exception("didn't find data by this key");
+            throw new Exception("Didn't find data by '{$field}' key\n");
         }
         usort($this->dataFromJson, fn($a, $b) => ($a->{$field} <=> $b->{$field}));
         return $this->dataFromJson;
